@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão Acadêmica</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { scroll-behavior: smooth; padding-top: 70px; }
+        .section-divider { border-bottom: 2px solid #28a745; margin-bottom: 30px; padding-top: 20px; }
+        .table-responsive { margin-bottom: 50px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+    <a class="navbar-brand" href="#">Portal Acadêmico</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#sec-pessoas">Pessoas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sec-ensino">Ensino</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sec-academico">Acadêmico</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sec-registros">Registros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sec-infra">Infra</a></li>
+            <li class="nav-item"><a class="nav-link" href="/admin/">Administração</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Pessoa</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Nome do Pai</th>
+                <th scope="col">Nome da Mãe</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data de Nascimento</th>
+                <th scope="col">Email</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Ocupação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa in pessoas %}
+                <tr>
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.pai }}</td>
+                    <td>{{ pessoa.mae }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                    <td>{{ pessoa.data_nasc }}</td>
+                    <td>{{ pessoa.email }}</td>
+                    <td>{{ pessoa.cidade }}</td>
+                    <td>{{ pessoa.ocupacao }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Ocupação</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ocupacao in ocupacoes %}
+                <tr>
+                    <td>{{ ocupacoes.nome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Instituição de Ensino</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Site</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Cidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for instituicoesensino in instituicoesensino %}
+                <tr>
+                    <td>{{ instituicoesensino.nome }}</td>
+                    <td>{{ instituicoesensino.site }}</td>
+                    <td>{{ instituicoesensino.telefone }}</td>
+                    <td>{{ instituicoesensino.cidade }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Area Saber</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for areassaber in areassaber %}
+                <tr>
+                    <td>{{ areassaber.nome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Curso</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Carga Horária Total</th>
+                <th scope="col">Duração em Meses</th>
+                <th scope="col">Area Saber</th>
+                <th scope="col">Instituição de Ensino</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cursos in cursos %}
+                <tr>
+                    <td>{{ cursos.nome }}</td>
+                    <td>{{ cursos.carga_horaria_total }}</td>
+                    <td>{{ cursos.duracao_meses }}</td>
+                    <td>{{ cursos.genero }}</td>
+                    <td>{{ cursos.area_saber }}</td>
+                    <td>{{ cursos.instituicao_ensino }}</td>
+                    <td>{{ cursos.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Turma</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turmas in turmas %}
+                <tr>
+                    <td>{{ turmas.nome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Disciplina</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Area Saber</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disciplinas in disciplinas %}
+                <tr>
+                    <td>{{ disciplinas.nome }}</td>
+                    <td>{{ disciplinas.area_saber }}</td>
+    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Matricula</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Instituiçao Ensino</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Pessoa</th>
+                <th scope="col">Data de Início da Matricula</th>
+                <th scope="col">Data de Previsão do Término</th>>
+            </tr>
+        </thead>
+        <tbody>
+            {% for matriculas in matriculas %}
+                <tr>
+                    <td>{{ matriculas.instituicao_ensino }}</td>
+                    <td>{{ matriculas.curso }}</td>
+                    <td>{{ matriculas.pessoa }}</td>
+                    <td>{{ matriculas.data_inicio }}</td>
+                    <td>{{ matriculas.data_previsao_termino }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Avaliação</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Descrição</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Tipo da Avaliação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for avaliacoes in avaliacoes %}
+                <tr>
+                    <td>{{ avaliacoes.descricao }}</td>
+                    <td>{{ avaliacoes.curso }}</td>
+                    <td>{{ avaliacoes.disciplina }}</td>
+                    <td>{{ avaliacoes.avaliacao_tipo }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Frequencia</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Curso</th>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Pessoa</th>
+                <th scope="col">Número de Faltas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for frequencias in frequencias %}
+                <tr>
+                    <td>{{ frequencias.curso }}</td>
+                    <td>{{ frequencias.disciplina }}</td>
+                    <td>{{ frequencias.pessoa }}</td>
+                    <td>{{ frequencias.numero_faltas }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Turnos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turnos in turnos %}
+                <tr>
+                    <td>{{ turnos.nome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Cidade</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">UF</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cidades in cidades %}
+                <tr>
+                    <td>{{ cidades.nome }}</td>
+                    <td>{{ cidades.uf }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Ocorrencia</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Pessoa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ocorrencias in ocorrencias %}
+                <tr>
+                    <td>{{ ocorrencias.descricao }}</td>
+                    <td>{{ ocorrencias.data }}</td>
+                    <td>{{ ocorrencias.curso }}</td>
+                    <td>{{ ocorrencias.disciplina }}</td>
+                    <td>{{ ocorrencias.pessoa }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Curso Disciplina</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Carga Horária</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Período</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cursosdisciplinas in cursosdisciplinas %}
+                <tr>
+                    <td>{{ cursosdisciplinas.disciplina }}</td>
+                    <td>{{ cursosdisciplinas.carga_horaria }}</td>
+                    <td>{{ cursosdisciplinas.curso }}</td>
+                    <td>{{ cursosdisciplinas.periodo }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Tabela Avaliação Tipo</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for avaliacoestipos in avaliacoestipos %}
+                <tr>
+                    <td>{{ avaliacoestipos.nome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"</script>
+</body>
+</html>

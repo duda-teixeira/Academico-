@@ -100,7 +100,7 @@ class Disciplina(models.Model):
 class Matricula(models.Model):
     data_inicio = models.DateField(max_length=100, verbose_name="Data de Início da Matrícula")
     data_previsao_termino = models.DateField(max_length=100, verbose_name="Data de Previsão do Término do Curso")
-    instituicao_ensino = models.ForeignKey(InstituicaoEnsino, on_delete=models.CASCADE, verbose_name="Area da Matricula")
+    instituicao_ensino = models.ForeignKey(InstituicaoEnsino, on_delete=models.CASCADE, verbose_name="Instituição")
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, verbose_name="Curso da Matricula")
     pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE, verbose_name="Pessoa Matriculada")
     def __str__(self):
@@ -121,9 +121,10 @@ class Avaliacao(models.Model):
         verbose_name_plural="Avaliacoes"
         
 class Frequencia(models.Model):
-    numero_faltas = models.CharField(max_length=100, verbose_name="Numero de Faltas")
-    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE, verbose_name="Disciplinada Ausência/Presença")
-    avaliacao_tipo = models.ForeignKey(AvaliacaoTipo, on_delete=models.CASCADE, verbose_name="Tipo da Avaliação de Ausência/Presença")  
+    curso = models.CharField(max_length=100, default='1', verbose_name="Curso")
+    numero_faltas = models.CharField(max_length=100, default='1', verbose_name="Numero de Faltas")
+    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE, default='1', verbose_name="Disciplina da Ausência/Presença")
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE, default='1', verbose_name=" Frequência da Pessoa")  
     def __str__(self):
         return f"{self.numero_faltas}" 
     class Meta:

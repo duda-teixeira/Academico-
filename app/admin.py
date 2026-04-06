@@ -1,21 +1,6 @@
 from django.contrib import admin
 from .models import *
 
-# admin.site.register(Ocupacao)
-# admin.site.register(AreaSaber)
-# admin.site.register(Turma)
-# admin.site.register(Turnos)
-# admin.site.register(Cidade)
-# admin.site.register(AvaliacaoTipo)
-# admin.site.register(Pessoa)
-# admin.site.register(InstituicaoEnsino)
-# admin.site.register(Curso)
-# admin.site.register(Disciplina)
-# admin.site.register(Matricula)
-# admin.site.register(Avaliacao)
-# admin.site.register(Frequencia)
-# admin.site.register(Ocorrencia)
-# admin.site.register(CursoDisciplina)
 
 #INLINES
 class CursoDisciplinaInline(admin.TabularInline):
@@ -24,6 +9,8 @@ class CursoDisciplinaInline(admin.TabularInline):
 
 class MatriculaInline(admin.TabularInline):
     model = Matricula
+    # Substitua os nomes abaixo pelos nomes REAIS dos campos que existem na sua class Matricula no models.py
+    fields = ['instituicao_ensino', 'curso', 'data_inicio', 'data_previsao_termino'] 
     extra = 1
 
 class OcorrenciaInline(admin.StackedInline): 
