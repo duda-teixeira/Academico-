@@ -16,7 +16,7 @@ class MatriculaInline(admin.TabularInline):
 class OcorrenciaInline(admin.StackedInline): 
     model = Ocorrencia
     extra = 0
-    fields = ['data', 'descricao', 'disciplina', 'curso']
+    fields = ['data', 'descricao', 'disciplina', 'curso', 'pessoa']
 
 class AvaliacaoInline(admin.TabularInline):
     model = Avaliacao
@@ -45,3 +45,8 @@ admin.site.register(Turnos)
 admin.site.register(AvaliacaoTipo)
 admin.site.register(Disciplina)
 admin.site.register(Frequencia)
+# Registre elas individualmente para aparecerem no menu principal do Admin
+admin.site.register(Avaliacao)
+admin.site.register(Ocorrencia)
+admin.site.register(CursoDisciplina)
+admin.site.register(Matricula) # Caso queira ver a lista de todas as matrículas também

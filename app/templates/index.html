@@ -73,7 +73,7 @@
         <tbody>
             {% for ocupacao in ocupacoes %}
                 <tr>
-                    <td>{{ ocupacoes.nome }}</td>
+                    <td>{{ ocupacao.nome }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -92,12 +92,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for instituicoesensino in instituicoesensino %}
+            {% for instituicaoensino in instituicoesensino %}
                 <tr>
-                    <td>{{ instituicoesensino.nome }}</td>
-                    <td>{{ instituicoesensino.site }}</td>
-                    <td>{{ instituicoesensino.telefone }}</td>
-                    <td>{{ instituicoesensino.cidade }}</td>
+                    <td>{{ instituicaoensino.nome }}</td>
+                    <td>{{ instituicaoensino.site }}</td>
+                    <td>{{ instituicaoensino.telefone }}</td>
+                    <td>{{ instituicaoensino.cidade }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -113,9 +113,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for areassaber in areassaber %}
+            {% for areasaber in areassaber %}
                 <tr>
-                    <td>{{ areassaber.nome }}</td>
+                    <td>{{ areasaber.nome }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -135,15 +135,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for cursos in cursos %}
+            {% for curso in cursos %}
                 <tr>
-                    <td>{{ cursos.nome }}</td>
-                    <td>{{ cursos.carga_horaria_total }}</td>
-                    <td>{{ cursos.duracao_meses }}</td>
-                    <td>{{ cursos.genero }}</td>
-                    <td>{{ cursos.area_saber }}</td>
-                    <td>{{ cursos.instituicao_ensino }}</td>
-                    <td>{{ cursos.status }}</td>
+                    <td>{{ curso.nome }}</td>
+                    <td>{{ curso.carga_horaria_total }}</td>
+                    <td>{{ curso.duracao_meses }}</td>
+                    <td>{{ curso.area_saber }}</td>
+                    <td>{{ curso.instituicao_ensino }}</td>
+                    <td>{{ curso.status }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -159,9 +158,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for turmas in turmas %}
+            {% for turma in turmas %}
                 <tr>
-                    <td>{{ turmas.nome }}</td>
+                    <td>{{ turma.nome }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -178,11 +177,10 @@
             </tr>
         </thead>
         <tbody>
-            {% for disciplinas in disciplinas %}
+            {% for disciplina in disciplinas %}
                 <tr>
-                    <td>{{ disciplinas.nome }}</td>
-                    <td>{{ disciplinas.area_saber }}</td>
-    
+                    <td>{{ disciplina.nome }}</td>
+                    <td>{{ disciplina.area_saber }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -202,13 +200,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for matriculas in matriculas %}
+            {% for matricula in matriculas %}
                 <tr>
-                    <td>{{ matriculas.instituicao_ensino }}</td>
-                    <td>{{ matriculas.curso }}</td>
-                    <td>{{ matriculas.pessoa }}</td>
-                    <td>{{ matriculas.data_inicio }}</td>
-                    <td>{{ matriculas.data_previsao_termino }}</td>
+                    <td>{{ matricula.instituicao_ensino }}</td>
+                    <td>{{ matricula.curso }}</td>
+                    <td>{{ matricula.pessoa }}</td>
+                    <td>{{ matricula.data_inicio }}</td>
+                    <td>{{ matricula.data_previsao_termino }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -227,12 +225,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for avaliacoes in avaliacoes %}
+            {% for avaliacao in avaliacoes %}
                 <tr>
-                    <td>{{ avaliacoes.descricao }}</td>
-                    <td>{{ avaliacoes.curso }}</td>
-                    <td>{{ avaliacoes.disciplina }}</td>
-                    <td>{{ avaliacoes.avaliacao_tipo }}</td>
+                    <td>{{ avaliacao.descricao }}</td>
+                    <td>{{ avaliacao.curso }}</td>
+                    <td>{{ avaliacao.disciplina }}</td>
+                    <td>{{ avaliacao.avaliacao_tipo }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -251,12 +249,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for frequencias in frequencias %}
+            {% for frequencia in frequencias %}
                 <tr>
-                    <td>{{ frequencias.curso }}</td>
-                    <td>{{ frequencias.disciplina }}</td>
-                    <td>{{ frequencias.pessoa }}</td>
-                    <td>{{ frequencias.numero_faltas }}</td>
+                    <td>{{ frequencia.curso }}</td>
+                    <td>{{ frequencia.disciplina }}</td>
+                    <td>{{ frequencia.pessoa }}</td>
+                    <td>{{ frequencia.numero_faltas }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -272,9 +270,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for turnos in turnos %}
+            {% for turno in turnos %}
                 <tr>
-                    <td>{{ turnos.nome }}</td>
+                    <td>{{ turno.nome }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -291,10 +289,10 @@
             </tr>
         </thead>
         <tbody>
-            {% for cidades in cidades %}
+            {% for cidade in cidades %}
                 <tr>
-                    <td>{{ cidades.nome }}</td>
-                    <td>{{ cidades.uf }}</td>
+                    <td>{{ cidade.nome }}</td>
+                    <td>{{ cidade.uf }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -314,13 +312,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for ocorrencias in ocorrencias %}
+            {% for ocorrencia in ocorrencias %}
                 <tr>
-                    <td>{{ ocorrencias.descricao }}</td>
-                    <td>{{ ocorrencias.data }}</td>
-                    <td>{{ ocorrencias.curso }}</td>
-                    <td>{{ ocorrencias.disciplina }}</td>
-                    <td>{{ ocorrencias.pessoa }}</td>
+                    <td>{{ ocorrencia.descricao }}</td>
+                    <td>{{ ocorrencia.data }}</td>
+                    <td>{{ ocorrencia.curso }}</td>
+                    <td>{{ ocorrencia.disciplina }}</td>
+                    <td>{{ ocorrencia.pessoa }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -339,12 +337,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for cursosdisciplinas in cursosdisciplinas %}
+            {% for cursodisciplina in cursosdisciplinas %}
                 <tr>
-                    <td>{{ cursosdisciplinas.disciplina }}</td>
-                    <td>{{ cursosdisciplinas.carga_horaria }}</td>
-                    <td>{{ cursosdisciplinas.curso }}</td>
-                    <td>{{ cursosdisciplinas.periodo }}</td>
+                    <td>{{ cursodisciplina.disciplina }}</td>
+                    <td>{{ cursodisciplina.carga_horaria }}</td>
+                    <td>{{ cursodisciplina.curso }}</td>
+                    <td>{{ cursodisciplina.periodo }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -360,9 +358,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for avaliacoestipos in avaliacoestipos %}
+            {% for avaliacaotipo in avaliacoestipos %}
                 <tr>
-                    <td>{{ avaliacoestipos.nome }}</td>
+                    <td>{{ avaliacaotipo.nome }}</td>
                 </tr>
             {% endfor %}
         </tbody>

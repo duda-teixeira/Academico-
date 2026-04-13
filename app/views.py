@@ -9,9 +9,32 @@ from .models import (
 
 # --- LISTAGENS SIMPLES (Sem chaves estrangeiras) ---
 
+# class IndexView(View):
+#     def get(self, request, *args, **kwargs):
+#         return render(request, 'index.html')
+
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'index.html')
+        context = {
+            # O nome da chave (esquerda) tem que ser IGUAL ao que está no seu {% for ... %}
+            'pessoas': Pessoa.objects.select_related('cidade', 'ocupacao').all(),
+            'ocupacoes': Ocupacao.objects.all(),
+            'instituicoesensino': InstituicaoEnsino.objects.select_related('cidade').all(),
+            'areassaber': AreaSaber.objects.all(),
+            'cursos': Curso.objects.select_related('area_saber', 'instituicao_ensino').all(),
+            'turmas': Turma.objects.all(),
+            'disciplinas': Disciplina.objects.all(),
+            'matriculas': Matricula.objects.select_related('instituicao_ensino', 'curso', 'pessoa').all(),
+            'avaliacoes': Avaliacao.objects.select_related('curso', 'disciplina', 'avaliacao_tipo').all(),
+            'frequencias': Frequencia.objects.select_related('disciplina', 'pessoa').all(),
+            'turnos': Turnos.objects.all(),
+            'cidades': Cidade.objects.all(),
+            'ocorrencias': Ocorrencia.objects.select_related('curso', 'disciplina', 'pessoa').all(),
+            'cursosdisciplinas': CursoDisciplina.objects.select_related('disciplina', 'curso').all(),
+            'avaliacoestipos': AvaliacaoTipo.objects.all(),
+       
+        }
+        return render(request, 'index.html', context)
 
 class AvaliacaoTipoView(View):
     def get(self, request, *args, **kwargs):
